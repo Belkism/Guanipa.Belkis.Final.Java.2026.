@@ -32,7 +32,7 @@ A continuación se detalla visualmente cómo se utiliza la aplicación y el comp
 ### 1. Pantalla Principal y Carga de Datos
 El usuario puede ingresar datos de forma libre, Mediante el menú desplegable (`ComboBox`), se define la identidad de la clase hija de manera explícita sin necesidad de forzar o "hardcodear" cadenas de texto en las marcas, distribuyendo el flujo polimórfico correctamente.
 
-![Pantalla Principal](imagenes/pantalla_Principal.png)
+![Pantalla Principal](imagenes/Pantalla_Principal.png)
 
 ### 2. Filtrado Dinámico y Persistencia
 Al seleccionar un tipo de vehículo y presionar "Filtrar", la vista se limpia mostrando exclusivamente las coincidencias asociadas al combustible del tipo seleccionado, generando en simultáneo el archivo físico de reportes.
