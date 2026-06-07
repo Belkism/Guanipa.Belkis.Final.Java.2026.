@@ -1,0 +1,4 @@
+=== REPORTE DE VEHICULOS FILTRADOS ===
+Fecha de generacion: 2026
+--------------------------------------
+- Tipo: Avion | Patente: VVV345 | Marca: Cesna | Combustible: GASOLINAAVION

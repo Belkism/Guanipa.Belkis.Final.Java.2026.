@@ -1,0 +1,165 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+title Sistema de Gestion de Vehiculos - Diagrama de Clases
+
+package javafinal {
+
+  enum TipoCombustible {
+    GASOLINA
+    DIESEL
+    ELECTRICO
+  }
+
+  interface Mantenimiento {
+    +realizarService(): String
+  }
+
+  interface DoCRUD~T~ {
+    +crear(entidad: T): void
+    +leerTodo(): List
+    +actualizar(identificador: String, entidadActualizada: T): void
+    +eliminar(identificador: String): void
+  }
+
+  abstract class Vehiculo {
+    -patente: String
+    -marca: String
+    +combustible: TipoCombustible
+    --
+    +Vehiculo(patente: String, marca: String, combustible: TipoCombustible)
+    +Vehiculo(patente: String, marca: String)
+    +Vehiculo()
+    --
+    +getPatente(): String
+    +setPatente(patente: String): void
+    +getMarca(): String
+    +setMarca(marca: String): void
+    +getCombustible(): TipoCombustible
+    +setCombustible(combustible: TipoCombustible): void
+    +mostrarDetalles(): String
+    +calcularImpuesto(): double
+    +compareTo(otro: Vehiculo): int
+    +toString(): String
+  }
+
+  class Auto {
+    -cantidadPuertas: int
+    -tieneAireAcondicionado: boolean
+    --
+    +Auto(patente: String, marca: String, combustible: TipoCombustible, cantidadPuertas: int, tieneAireAcondicionado: boolean)
+    +Auto(patente: String, marca: String, combustible: TipoCombustible, cantidadPuertas: int)
+    +Auto()
+    --
+    +getCantidadPuertas(): int
+    +setCantidadPuertas(cantidadPuertas: int): void
+    +isTieneAireAcondicionado(): boolean
+    +setTieneAireAcondicionado(tieneAireAcondicionado: boolean): void
+    +mostrarDetalles(): String
+    +calcularImpuesto(): double
+    +realizarService(): String
+  }
+
+  class Avion {
+    -capacidadPasajeros: int
+    -altitudMaxima: int
+    --
+    +Avion(patente: String, marca: String, combustible: TipoCombustible, capacidadPasajeros: int, altitudMaxima: int)
+    +Avion(patente: String, marca: String, combustible: TipoCombustible, capacidadPasajeros: int)
+    +Avion()
+    --
+    +getCapacidadPasajeros(): int
+    +setCapacidadPasajeros(capacidadPasajeros: int): void
+    +getAltitudMaxima(): int
+    +setAltitudMaxima(altitudMaxima: int): void
+    +mostrarDetalles(): String
+    +calcularImpuesto(): double
+    +realizarService(): String
+  }
+
+  class Barco {
+    -eslora: double
+    -tieneCamarote: boolean
+    --
+    +Barco(patente: String, marca: String, combustible: TipoCombustible, eslora: double, tieneCamarote: boolean)
+    +Barco(patente: String, marca: String, combustible: TipoCombustible, eslora: double)
+    +Barco()
+    --
+    +getEslora(): double
+    +setEslora(eslora: double): void
+    +isTieneCamarote(): boolean
+    +setTieneCamarote(tieneCamarote: boolean): void
+    +mostrarDetalles(): String
+    +calcularImpuesto(): double
+  }
+
+  class GestionVehiculos {
+    -listaVehiculos: List
+    --
+    +GestionVehiculos()
+    +crear(vehiculo: Vehiculo): void
+    +leerTodo(): List
+    +actualizar(identificador: String, entidadActualizada: Vehiculo): void
+    +eliminar(identificador: String): void
+    +iterator(): Iterator
+    +ordenarPorMarca(): void
+    +ordenarPorImpuesto(): void
+    +filtrarPorCombustible(listaAFiltrar: List, tipo: TipoCombustible): List
+    +copiarAutosAListaDestino(listaDestino: List): void
+    +modificarVehiculos(modificacion: Consumer): void
+  }
+
+  class ManejadorArchivos {
+    -NOMBRE_ARCHIVO: String
+    --
+    +guardarVehiculos(lista: List): void
+    +cargarVehiculos(): List
+    +guardarEnFormatosExtras(lista: List): void
+    +exportarListadoFiltrado(listaFiltrada: List): void
+  }
+
+  class FXMLDocumentController {
+    -gestion: GestionVehiculos
+    --
+    +initialize(url: URL, rb: ResourceBundle): void
+    +handleAgregarAction(event: ActionEvent): void
+    +handleActualizarAction(event: ActionEvent): void
+    +handleEliminarAction(event: ActionEvent): void
+    +handleListarAction(event: ActionEvent): void
+    +handleOrdenarAction(event: ActionEvent): void
+    +handleFiltrarAction(event: ActionEvent): void
+  }
+
+  class JavaFinal {
+    +start(stage: Stage): void
+    +main(args: String[]): void
+  }
+
+  class PatenteDuplicadaException
+  class VehiculoNoEncontradoException
+
+  Vehiculo <|-- Auto
+  Vehiculo <|-- Avion
+  Vehiculo <|-- Barco
+
+  Mantenimiento <|.. Auto
+  Mantenimiento <|.. Avion
+
+  DoCRUD~Vehiculo~ <|.. GestionVehiculos
+  Iterable~Vehiculo~ <|.. GestionVehiculos
+
+  TipoCombustible <-- Vehiculo
+
+  GestionVehiculos *-- "0..*" Vehiculo : contiene
+  FXMLDocumentController --> GestionVehiculos : usa
+  FXMLDocumentController ..> ManejadorArchivos : persistencia
+  ManejadorArchivos ..> Vehiculo : serializa
+
+  PatenteDuplicadaException --|> Exception
+  VehiculoNoEncontradoException --|> Exception
+
+  JavaFinal ..> FXMLDocumentController : carga FXML
+}
+
+@enduml

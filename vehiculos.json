@@ -1,0 +1,17 @@
+[
+  {
+    "patente": "AAA123",
+    "marca": "Cronos",
+    "combustible": "GASOLINA"
+  },
+  {
+    "patente": "BBB222",
+    "marca": "Yamaha",
+    "combustible": "DIESEL"
+  },
+  {
+    "patente": "VVV345",
+    "marca": "Cesna",
+    "combustible": "GASOLINAAVION"
+  }
+]
