@@ -30,7 +30,7 @@ El sistema implementa una arquitectura estructurada en tres capas principales: u
 A continuación se detalla visualmente cómo se utiliza la aplicación y el comportamiento dinámico de sus componentes:
 
 ### 1. Pantalla Principal y Carga de Datos
-El usuario puede ingresar datos de forma libre, Mediante el menú desplegable (`ComboBox`), se define la identidad de la clase hija de manera explícita sin necesidad de forzar o "hardcodear" cadenas de texto en las marcas, distribuyendo el flujo polimórfico correctamente.
+El usuario puede ingresar datos de forma libre, mediante el menú desplegable (`ComboBox`), se define la identidad de la clase hija de manera explícita sin necesidad de forzar o "hardcodear" cadenas de texto en las marcas, distribuyendo el flujo polimórfico correctamente.
 
 ![Pantalla Principal](imagenes/Pantalla%20Principal.png)
 ![Pantalla Agregar](imagenes/Pantalla%20Agregar.png)
