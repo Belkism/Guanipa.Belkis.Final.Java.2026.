@@ -52,10 +52,12 @@ El diseño de la aplicación respeta estrictamente las relaciones de herencia de
 
 ---
 
- Archivos Generados en esta Entrega
+## Persistencia y Reportes del Sistema
 
+En el repositorio se incluyen ejemplos prácticos del mecanismo de persistencia y generación de reportes implementado en la aplicación:
 
-En el repositorio se incluyen ejemplos prácticos y reales del comportamiento de persistencia del software:
-`vehiculos.txt`: Archivos para la persistencia y carga nativa serializada del sistema.
-`vehiculos.json`: Estructura jerárquica estandarizada que exporta los atributos clave de la lista.
-`reporte_filtrado.txt`: Reporte formal legible por un ser humano organizado con un encabezado descriptivo.
+| Archivo | Descripción |
+|----------|------------|
+| `vehiculos.txt` | Archivo utilizado para la persistencia local serializada de la información registrada en el sistema. |
+| `vehiculos.json` | Representación estructurada de los vehículos almacenados, exportada en formato JSON para facilitar la interoperabilidad de los datos. |
+| `reporte_filtrado.txt` | Reporte generado automáticamente a partir de los filtros aplicados por el usuario, organizado con un encabezado descriptivo y formato legible. |
