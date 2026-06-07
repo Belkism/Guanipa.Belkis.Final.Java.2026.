@@ -48,7 +48,7 @@ Al seleccionar un tipo de vehículo y presionar "Filtrar", la vista se limpia mo
 
 El diseño de la aplicación respeta estrictamente las relaciones de herencia de la clase abstracta base hacia las clases hijas, la implementación de interfaces genéricas para el CRUD y las asociaciones con el controlador visual.
 
-![Diagrama UML del Proyecto](imagenes/diagramaUML.png)
+![Diagrama UML](diagramaUML.png)
 
 ---
 
