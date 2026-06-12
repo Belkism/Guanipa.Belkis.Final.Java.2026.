@@ -58,6 +58,7 @@ En el repositorio se incluyen ejemplos prácticos del mecanismo de persistencia 
 
 | Archivo | Descripción |
 |----------|------------|
-| `vehiculos.txt` | Archivo utilizado para la persistencia local serializada de la información registrada en el sistema. |
+| `vehiculos.txt` | Archivo utilizado para la persistencia local en formato plano (CSV) con delimitadores, permitiendo la lectura y escritura estructurada de los datos del sistema.. |
 | `vehiculos.json` | Representación estructurada de los vehículos almacenados, exportada en formato JSON para facilitar la interoperabilidad de los datos. |
 | `reporte_filtrado.txt` | Reporte generado automáticamente a partir de los filtros aplicados por el usuario, organizado con un encabezado descriptivo y formato legible. |
+| `vehiculos.dat`| Archivo de persistencia binaria nativa, generado mediante el proceso de serialización de objetos para recuperar de forma exacta el estado de las entidades en la memoria RAM.|
