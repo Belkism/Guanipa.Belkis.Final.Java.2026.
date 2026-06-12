@@ -1,5 +1,7 @@
 
 package javafinal;
+import java.io.Serializable;
+
 
 /**
  *
@@ -9,7 +11,7 @@ package javafinal;
 enum TipoCombustible { 
 GASOLINA, DIESEL, GASOLINAAVION}
 
-public abstract class Vehiculo implements Comparable<Vehiculo>{
+public abstract class Vehiculo implements Comparable<Vehiculo>, Serializable{
     
     private String patente;
     private String marca;

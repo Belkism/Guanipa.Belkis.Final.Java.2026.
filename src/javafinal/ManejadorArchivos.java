@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ManejadorArchivos {
 
-    // El nombre del archivo de texto donde guardaremos los datos en el disco
+    // El nombre del archivo de texto CVS donde guardaremos los datos en el disco
     private static final String NOMBRE_ARCHIVO = "vehiculos.txt";
 
     // --- MÉTODO PARA GUARDAR LOS DATOS (Escritura) ---
@@ -26,11 +26,11 @@ public class ManejadorArchivos {
                 bw.write(tipo + ";" + v.getPatente() + ";" + v.getMarca() + ";" + v.getCombustible());
                 bw.newLine(); // Salto de línea para el próximo vehículo
             }
-            System.out.println("Datos persistidos en " + NOMBRE_ARCHIVO + " con éxito.");
+            System.out.println("Datos persistidos en " + NOMBRE_ARCHIVO + " con exito.");
             
         } catch (IOException e) {
             // Requisito del PDF: Manejo explícito de excepciones de Entrada/Salida
-            System.err.println("Error crítico al intentar guardar el archivo: " + e.getMessage());
+            System.err.println("Error critico al intentar guardar el archivo: " + e.getMessage());
         }
     }
 
@@ -110,6 +110,23 @@ public class ManejadorArchivos {
                 }
             }
             System.out.println("Reporte filtrado exportado a reporte_filtrado.txt");
+        }
+    }  
+    // --- REQUISITO EXTENSION: SERIALIZACIÓN BINARIA (.dat) ---
+    public static void guardarVehiculosBinario(List<Vehiculo> lista) {
+        try (java.io.ObjectOutputStream oos = new java.io.ObjectOutputStream(new java.io.FileOutputStream("vehiculos.dat"))) {
+            oos.writeObject(lista); // Guarda la lista nativa en bytes
+            System.out.println("Archivo binario vehiculos.dat generado.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar binario: " + e.getMessage());
+        }
+    }
+
+    public static List<Vehiculo> cargarVehiculosBinario() {
+        try (java.io.ObjectInputStream ois = new java.io.ObjectInputStream(new java.io.FileInputStream("vehiculos.dat"))) {
+            return (List<Vehiculo>) ois.readObject(); // Recupera los objetos nativos
+        } catch (Exception e) {
+            return new ArrayList<>(); // Si no existe, devuelve lista vacía
         }
     }
 }

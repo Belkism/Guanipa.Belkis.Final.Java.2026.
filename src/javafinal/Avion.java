@@ -12,7 +12,7 @@ public class Avion extends Vehiculo implements Mantenimiento{
         this.altitudMaxima = altitudMaxima;
     }
 
-    // Sobrecarga 2: Un parámetro menos
+    // Sobrecarga 2: Un parámetro menos //Llama a constructor de su misma clase con el this
     public Avion(String patente, String marca, TipoCombustible combustible, int capacidadPasajeros) {
         this(patente, marca, combustible, capacidadPasajeros, 10000); // 10000 metros por defecto
     }
@@ -33,7 +33,7 @@ public class Avion extends Vehiculo implements Mantenimiento{
 
     @Override
     public String mostrarDetalles() {
-        return "AVIÓN -> " + toString() + " | Pasajeros: " + capacidadPasajeros + " | Altitud Máx: " + altitudMaxima + "m";
+        return "AVIÓN -> " + toString() + " | Pasajeros: " + capacidadPasajeros + " | Altitud Max: " + altitudMaxima + "m";
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Avion extends Vehiculo implements Mantenimiento{
     
     @Override
     public String realizarService() {
-        return "SERVICE AVIÓN: Inspección de turbinas, test de tren de aterrizaje.";
+        return "SERVICE AVIÓN: Inspeccion de turbinas, test de tren de aterrizaje.";
     }
     
 }

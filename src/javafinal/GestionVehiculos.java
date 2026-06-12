@@ -77,7 +77,7 @@ public class GestionVehiculos implements DoCRUD<Vehiculo>, Iterable<Vehiculo> {
         }
     }
 
-    // Criterio 1 con Comparator: Ordenar por Marca alfabéticamente (Requisito punto 4)
+    // Criterio 1 con Comparator: Ordenar por Marca alfabéticamente (Requisito punto 4) compare compara letra por letra
     public void ordenarPorMarca() {
         this.listaVehiculos.sort((v1, v2) -> v1.getMarca().compareToIgnoreCase(v2.getMarca()));
         System.out.println("Lista ordenada por marca.");
@@ -88,7 +88,7 @@ public class GestionVehiculos implements DoCRUD<Vehiculo>, Iterable<Vehiculo> {
         this.listaVehiculos.sort((v1, v2) -> Double.compare(v1.calcularImpuesto(), v2.calcularImpuesto()));
         System.out.println("Lista ordenada por valor de impuesto.");
     }
-    // Uso de Upper Bounded Wildcard (? extends) para filtrar y listar (Requisito punto 4 y 8)
+    // Uso de Upper Bounded Wildcard (? extends) para filtrar y listar (Requisito punto 4 y 8) /Estructuras de lectura
 
     public List<Vehiculo> filtrarPorCombustible(List<? extends Vehiculo> listaAFiltrar, TipoCombustible tipo) {
         List<Vehiculo> resultado = new ArrayList<>();

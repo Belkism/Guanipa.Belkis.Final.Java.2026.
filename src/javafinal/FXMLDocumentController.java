@@ -73,6 +73,7 @@ public class FXMLDocumentController implements Initializable {
             // Persistencia de datos requerida por el PDF
             ManejadorArchivos.guardarVehiculos(gestion.leerTodo());
             ManejadorArchivos.guardarEnFormatosExtras(gestion.leerTodo()); // Guarda JSON
+            ManejadorArchivos.guardarVehiculosBinario(gestion.leerTodo());
             
             lblMensajes.setText("Estado: " + nuevoVehiculo.getClass().getSimpleName() + " " + patente + " creado.");
             mostrarListaEnPantalla(gestion.leerTodo());
@@ -121,7 +122,7 @@ public class FXMLDocumentController implements Initializable {
             lblMensajes.setText("Estado: " + e.getMessage());
         }
     }
-
+//Manejadores del proyecto
     @FXML
     private void handleEliminarAction(ActionEvent event) {
         try {
@@ -152,7 +153,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleOrdenarAction(ActionEvent event) {
         gestion.ordenarPorMarca(); // Usa tu Comparator por Lambda
         mostrarListaEnPantalla(gestion.leerTodo());
-        lblMensajes.setText("Estado: Ordenado alfabéticamente por marca.");
+        lblMensajes.setText("Estado: Ordenado alfabeticamente por marca.");
     }
 
     @FXML 
