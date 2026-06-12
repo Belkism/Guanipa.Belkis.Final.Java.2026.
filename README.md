@@ -17,8 +17,8 @@ El sistema implementa una arquitectura estructurada en tres capas principales: u
 * **Estructuras Avanzadas y Genéricos:** Uso de un `Iterator` personalizado para recorrer las colecciones, ordenamiento natural mediante `Comparable` y criterios múltiples con `Comparator` por medio de expresiones Lambda.
 * **Uso Eficiente de Wildcards:** Implementación de límites superiores (`? extends Vehiculo`) para operaciones de filtrado dinámico y límites inferiores (`? super Auto`) para la manipulación segura de colecciones en memoria.
 * **Interfaces Funcionales:** Modificaciones masivas en lote aplicadas sobre la lista mediante expresiones Lambda basadas en la interfaz funcional `Consumer<Vehiculo>`.
-* **Persistencia Multiformato:** Automatización de guardado y lectura de datos nativos mediante serialización, persistencia secundaria en archivos estructurados **CSV** y **JSON**, y exportación de reportes legibles por humanos en formato `.txt`.
-* **Manejo de Excepciones Propias:** Control robusto del flujo del programa mediante dos excepciones personalizadas de negocio (`PatenteDuplicadaException` y `VehiculoNoEncontradoException`).
+* **Persistencia Multiformato:** Automatización de guardado y lectura de datos nativos mediante serialización binaria .dat, persistencia secundaria en archivos estructurados **CSV** y **JSON**, y exportación de reportes legibles por humanos en formato `.txt`.
+* **Manejo de Excepciones Propias:** Control robusto del flujo del programa mediante dos excepciones personalizadas de negocio de tipo de checked (`PatenteDuplicadaException` y `VehiculoNoEncontradoException`).
 
 
 
